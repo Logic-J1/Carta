@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carta para mi princesa</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===== BASE ===== */
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  font-family:'Fredoka', sans-serif;
+  background:linear-gradient(to bottom,#ffe3ef,#ff8fab,#c9184a);
+}
+
+.page{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:32px;
+  box-sizing:border-box;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .5s ease;
+  z-index:2;
+}
+
+.page.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+h1{
+  color:white;
+  font-size:40px;
+  margin-bottom:24px;
+  text-shadow:2px 2px 10px rgba(0,0,0,.6);
+}
+
+.frase{
+  color:white;
+  font-size:22px;
+  max-width:720px;
+  line-height:1.6;
+  text-shadow:2px 2px 10px rgba(0,0,0,.6);
+}
+
+.fotos{
+  display:flex;
+  gap:18px;
+  margin-top:28px;
+}
+
+.fotos img{
+  width:150px;
+  height:200px;
+  object-fit:cover;
+  border-radius:16px;
+  border:6px solid white;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+button{
+  margin-top:26px;
+  padding:14px 38px;
+  font-size:20px;
+  border:none;
+  border-radius:40px;
+  background:#ff4d6d;
+  color:white;
+}
+
+.arrow{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  font-size:34px;
+  color:white;
+  cursor:pointer;
+  display:none;
+  z-index:5;
+}
+
+/* ===== CORAZONES ===== */
+.heart{
+  position:fixed;
+  top:-30px;
+  color:red;
+  opacity:.6;
+  animation:caer 10s linear forwards;
+  pointer-events:none;
+  z-index:1;
+}
+
+@keyframes caer{
+  to{transform:translateY(120vh);}
+}
+
+/* ===== ÚLTIMA PÁGINA ===== */
+#page5{
+  background:linear-gradient(to bottom,#5a0f2e,#8b1e3f,#3a0a1f);
+}
+
+#page5 .frase{
+  color:#ffd6e0;
+}
+
+.spotify{
+  margin-top:18px;
+}
+
+.spotify a{
+  display:inline-block;
+  margin-top:8px;
+  padding:10px 22px;
+  background:#C2185B;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:16px;
+}
+</style>
+</head>
+<body>
+
+<script>
+// corazones constantes
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='❤';
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(18+Math.random()*22)+'px';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),10000);
+},600);
+</script>
+
+<!-- PÁGINAS -->
+<div class="page active" id="page0">
+  <h1>HOLA PRINCESA</h1>
+  <button onclick="iniciar()">Presionar</button>
+</div>
+
+<div class="page" id="page1">
+  <div class="frase">Hola princesa, esto es una carta que espero que algún momento veas.</div>
+  <div class="fotos"><img src="20250825_203740.jpg"></div>
+</div>
+
+<div class="page" id="page2">
+  <div class="frase">Me gustas mucho. Te me haces tan hermosa. Cada vez que salimos me recuerdas lo bella que eres: esos ojos que me miran, esa carita tan bonita, esos labios que deseo y esa sonrisa que siempre quiero ver.</div>
+  <div class="fotos"><img src="IMG-20260118-WA0000.jpg"><img src="20240904_184131.jpg"></div>
+</div>
+
+<div class="page" id="page3">
+  <div class="frase">Puede que a veces no esté al cien y que algunas cosas me molesten, pero aun así quiero estar contigo pase lo que pase. Quiero que te quedes como mi novia y seguir siendo tu novio.</div>
+  <div class="fotos"><img src="20250112_203131.jpg"></div>
+</div>
+
+<div class="page" id="page4">
+  <div class="frase">Sé que tu forma de querer es diferente a la mía, pero aun así quiero que te quedes a mi lado.<br><br>Te amo, Kristell.</div>
+  <div class="fotos"><img src="20250112_203419.jpg"></div>
+</div>
+
+<div class="page" id="page5">
+  <div class="frase">
+    No me gusta el café dulce, pero contigo quiero endulzar cada momento.
+    <div class="spotify"><a href="https://open.spotify.com/track/45hZQUKq1hhbBVoGaz2M1x?si=M028S7TkSDGsMfnh89YbZA" target="_blank">pulsar</a></div>
+
+    Porque lo que siento por ti ya no cabe en un simple sentimiento.
+    <div class="spotify"><a href="https://open.spotify.com/track/35ttE4t8lQZA2vuCYDg4G7?si=qrv_DsaxShqHnS_YvDZv0g" target="_blank">pulsar</a></div>
+
+    Tu belleza me seduce, pero es tu mirada la que me desarma.
+    <div class="spotify"><a href="https://open.spotify.com/track/2mHpt6Lmb3LRai5AXAadZr?si=_hyRQ4etQwqeaSPFV61JQA" target="_blank">pulsar</a></div>
+
+    Quiero recorrer cada parte de ti… sin prisa y sin miedo.
+    <div class="spotify"><a href="https://open.spotify.com/track/0l0vcZMU7AOeQmUIREoI2U?si=kCT-cnb7Sjmb8rvxsYRihw" target="_blank">pulsar</a></div>
+  </div>
+</div>
+
+<div class="arrow" id="arrow" onclick="siguiente()">➜</div>
+
+<script>
+let actual=0;
+const total=5;
+
+function iniciar(){
+  document.getElementById('page0').classList.remove('active');
+  actual=1;
+  document.getElementById('page1').classList.add('active');
+  document.getElementById('arrow').style.display='block';
+}
+
+function siguiente(){
+  document.getElementById('page'+actual).classList.remove('active');
+  actual++;
+  if(actual>total) actual=1;
+  document.getElementById('page'+actual).classList.add('active');
+}
+</script>
+
+</body>
+</html>
